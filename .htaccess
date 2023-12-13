@@ -1,3 +1,4 @@
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{SERVER_PORT} ^443$ [OR] 
+RewriteCond %{HTTPS} On  
+RewriteCond %{HTTP_HOST} ^(www.)?proacopintura\.com.br$ [NC] 
+RewriteRule ^(.*)$ http://www.proacopintura.com.br/$1 [L,R=301]
